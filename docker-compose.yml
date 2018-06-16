@@ -1,0 +1,13 @@
+version: '2'
+services:
+    key-hide:
+        image: taichikageyama/key-hide:x86_64-201901
+        container_name: key-hide
+        hostname: key-hode
+        environment:
+            - GNUPGHOME=/data/gnupg
+        volumes:
+            - ./PV:/data
+        tty: true
+        entrypoint: bash -c "/data/bin/key-hide.sh -h; bash"
+# docker-compose run --rm key-hide
