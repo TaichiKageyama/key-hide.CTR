@@ -1,7 +1,7 @@
 version: '2'
 services:
     key-hide:
-        image: taichikageyama/key-hide:x86_64-201901
+        image: taichikageyama/key-hide
         container_name: key-hide
         hostname: key-hode
         environment:

@@ -59,6 +59,10 @@ key_restore()
 	"IMG")  steghide extract -sf $SECRET_DATA -xf $sec_data ;;
 	esac
 
+	if [ $? -ne 0 ]; then
+		ERR=1; return
+	fi
+
 	# Revert SECRET_DATA to secret-key
 	paperkey --pubring $pub_key --secrets $sec_data \
 		$paperkey_input_opt --output $sec_key
@@ -106,7 +110,7 @@ done
 [ "${KEY_ID}" = "" ] && usage
 [ "${SECRET_DATA_TYPE}" = "" ] && usage
 [ "${MODE}" = "" ] && usage
-[ "${KEY_TYPE}" = "" ] && usage
+[ "${MODE}" = "BACKUP" ] && [ "${KEY_TYPE}" = "" ] && usage
 
 case $MODE in
 	"BACKUP")  key_backup ;;

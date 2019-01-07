@@ -5,7 +5,8 @@ RUN set -ex;                                                              \
     DEBIAN_FRONTEND=noninteractive apt-get -qq                            \
         -o Dpkg::Options::="--force-confdef"                              \
         -o Dpkg::Options::="--force-confold" install -y                   \
-        gnupg steghide paperkey zbar-tools qrencode imagemagick;          \
+        gnupg steghide paperkey zbar-tools qrencode imagemagick           \
+	graphicsmagick;       						  \
     apt-get -qq autoclean -y;                                             \
     apt-get -qq clean -y;                                                 \
     rm -rf /var/lib/apt/lists/*;
