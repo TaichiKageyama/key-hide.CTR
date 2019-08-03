@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM debian:stretch-slim
 LABEL maintainer="32001477+TaichiKageyama@users.noreply.github.com"
 RUN set -ex;                                                              \
     apt-get -qq update;                                                   \
