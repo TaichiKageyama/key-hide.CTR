@@ -8,6 +8,7 @@ services:
             - GNUPGHOME=/data/gnupg
         volumes:
             - ./PV:/data
+        network_mode: "host"
         tty: true
         entrypoint: bash -c "/data/bin/key-hide.sh -h; bash"
 # docker-compose run --rm key-hide
